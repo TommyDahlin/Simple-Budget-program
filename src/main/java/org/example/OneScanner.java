@@ -1,12 +1,9 @@
 package org.example;
-
 import java.util.Scanner;
-
 public class OneScanner {
-    public Scanner OneScanner = new Scanner(System.in);
-
-
-    public String OneScanner(){
-        return OneScanner.nextLine();
+    public static String OneScannerIn(){
+        Scanner oneScanner = new Scanner(System.in);
+        String oneScannerOut = oneScanner.nextLine();
+        return oneScannerOut;
     }
 }
