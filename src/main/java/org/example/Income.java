@@ -1,7 +1,2 @@
-package org.example;
-
-public enum Income {
-    PAY,
-    OTHER,
-    SERVICES
+package org.example;public class Income {
 }
