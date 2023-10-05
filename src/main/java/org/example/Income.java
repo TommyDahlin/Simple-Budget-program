@@ -1,2 +1,6 @@
-package org.example;public class Income {
+package org.example;
+
+public class Income extends Transaction{
+
+
 }

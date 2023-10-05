@@ -1,40 +1,35 @@
 package org.example;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 public class UserMenu extends User {
-    public UserMenu(){
+    public UserMenu() throws IOException {
         super();
-        boolean isRunning = true;
-        System.out.println("[1]. Users name. \n[2] Add user. \n[3] Remove user.\n[4] Leave Menu.");
-        String choice = OneScanner.OneScannerIn();
-        while (isRunning) {
+        System.out.println("[1] Users name. \n[2] Add user. \n[3] Remove user.\n[4] Leave Menu.");
+        String choice = InputReader.BufferedReaderOut();
             switch (choice) {
                 case "1":
-                    System.out.println("User Firstname + User Lastname");
-                    isRunning = false;
-                    break;
-                case "2":
+                    System.out.println(getFirstName()+ " "+ getLastName() );
+                    new UserMenu();
+                    case "2":
                     System.out.println("Add user.\nInput your First name.");
-                    String firstname = String.valueOf(new OneScanner());
+                    String firstname = InputReader.BufferedReaderOut();
                     System.out.println("Input your last name.");
-                    String lastname = String.valueOf(new OneScanner());
-                    setFirstName(firstname);
-                    setLastName(lastname);
-                    User user = new User(getFirstName(), getLastName());
+                    String lastname = InputReader.BufferedReaderOut();
+                    User user = new User(firstname, lastname);
                     users.add(user);
-                    System.out.println(users);
-                    isRunning=false;
+                    System.out.println(user.firstName + " " + user.lastName);
+                    new UserMenu();
                     break;
                 case "3":
                     System.out.println("Remove user.");
-                    isRunning=false;
+                    new UserMenu();
                     break;
+
                 case "4":
                     System.out.println("Leave menu.");
                     new MainMenu();
-                    isRunning = false;
+                    break;
             }
         }
     }
-}

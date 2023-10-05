@@ -1,9 +1,12 @@
 package org.example;
-import java.util.Scanner;
-public class OneScanner {
-    public static String OneScannerIn(){
-        Scanner oneScanner = new Scanner(System.in);
-        String oneScannerOut = oneScanner.nextLine();
-        return oneScannerOut;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class InputReader {
+    public static String BufferedReaderOut() throws IOException {
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        String bfInput = input.readLine();
+        return bfInput;
     }
 }
