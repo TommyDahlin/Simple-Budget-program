@@ -10,11 +10,7 @@ public class ExpensesMenu {
         String choice = InputReader.BufferedReaderOut();
         switch (choice){
             case "1" : {
-                System.out.println("How many expenses do you want to add?");
-                int eAmt = Integer.parseInt(InputReader.BufferedReaderOut());
-                for (int i = 0; i < eAmt; i++) {
-                    new CreateExpense();
-                }
+                new CreateExpense();
                 new ExpensesMenu();
             }
                 case "2" :
@@ -24,14 +20,12 @@ public class ExpensesMenu {
                     System.out.println("There are no expenses added.\n");
                     new ExpensesMenu();
                 }else {
-                for (int i = 0; i < ExpenseStorage.expenseList.size(); i++) {
-                    System.out.println((ExpenseStorage.expenseList.get(i).expenseName));
-                    System.out.println((ExpenseStorage.expenseList.get(i).expenseDouble));
-                    System.out.println((ExpenseStorage.expenseList.get(i).eExpenseCategory.getCategory()));
+                    new ListExpenses();
                     new ExpensesMenu();
-                }}
+                }
             case "4" : new MainMenu();
-
         }
+
+
     }
 }

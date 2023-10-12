@@ -4,5 +4,5 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IncomeStorage {
-    public static List<Income> incomeList;
+    public static ArrayList<Income> incomeList = new ArrayList<>();
 }

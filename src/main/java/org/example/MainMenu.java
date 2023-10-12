@@ -33,6 +33,7 @@ public class MainMenu {
             case "0" -> {
                 System.out.println("The program will exit now");
                 new CloseWriters();
+                System.exit(0);
                 break;
             }
         }
