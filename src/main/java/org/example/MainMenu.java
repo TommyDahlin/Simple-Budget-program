@@ -32,7 +32,7 @@ public class MainMenu {
             }
             case "0" -> {
                 System.out.println("The program will exit now");
-                //Add all saved changes to JSON file.
+                new CloseWriters();
                 break;
             }
         }
