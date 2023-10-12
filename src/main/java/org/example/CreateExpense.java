@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateExpense {
     public CreateExpense() throws IOException {
@@ -13,7 +14,7 @@ public class CreateExpense {
         expense.setExpenseDouble(Double.parseDouble(InputReader.BufferedReaderOut()));
         System.out.println("Choose a category through a number: \n[1] Food\n[2] Gas\n[3] Rent\n[4] Fun\n[5] Other");
         expense.seteExpenseCategory(getExpenseCat());
-        ArrayList<Expense> expenseList = new ExpenseStorage().expenseList;
+        List<Expense> expenseList = new ExpenseStorage().expenseList;
         expenseList.add(expense);
         new WriteExpenseToFile();
         new ExpensesMenu();
