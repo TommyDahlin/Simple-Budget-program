@@ -1,10 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Income extends Transaction{
-    public ArrayList<Income> incomeList = new ArrayList<>();
     public double incomeDouble;
     public String incomeName;
     public EIncomeCategory eIncomeCategory;

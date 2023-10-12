@@ -32,7 +32,6 @@ public class MainMenu {
             }
             case "0" -> {
                 System.out.println("The program will exit now");
-                IncomeStorage.fileWriter.close();
                 //Add all saved changes to JSON file.
                 break;
             }
