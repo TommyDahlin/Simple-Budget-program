@@ -6,7 +6,6 @@ public class ListExpenses {
             System.out.println((ExpenseStorage.expenseList.get(i).expenseName));
             System.out.println((ExpenseStorage.expenseList.get(i).expenseDouble));
             System.out.println((ExpenseStorage.expenseList.get(i).eExpenseCategory.getCategory()));
-            System.out.println("ID: " + (i +1) + "\n");
         }
     }
 }

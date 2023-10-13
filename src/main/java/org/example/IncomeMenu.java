@@ -11,7 +11,7 @@ public class IncomeMenu {
                 new CreateIncome();
                 new IncomeMenu();
             }
-            case "2" -> new RemoveIncome();
+            case "2" -> System.out.println("Remove income object");
             case "3" -> {
                 if (IncomeStorage.incomeList == null){
                 System.out.println("There are no incomes added. \n");
