@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jsontest (1)" />
-        <module name="jsontest (2)" />
+        <module name="jsontest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jsontest" target="17" />
+      <module name="jsontest (1)" target="17" />
+      <module name="jsontest (2)" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
