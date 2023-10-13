@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CreateIncome {
@@ -19,6 +20,7 @@ public class CreateIncome {
         income.setIncomeDouble(Double.parseDouble(InputReader.BufferedReaderOut()));
         System.out.println("Choose a category through a number: [1] Wage, [2] Services, [3] Other");
         income.seteIncomeCategory(getIncomeCat());
+        income.setDate();
         List<Income> incomeList = new IncomeStorage().incomeList;
         incomeList.add(income);
         System.out.println(incomeList.get(0).incomeName + " " + incomeList.get(0).incomeDouble + incomeList.get(0).geteIncomeCategory().getCategory());

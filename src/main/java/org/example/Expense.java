@@ -1,18 +1,29 @@
 package org.example;
 
+import java.util.Date;
+
 public class Expense extends Transaction{
     public double expenseDouble;
     public String expenseName;
     public EExpenseCategory eExpenseCategory;
+    Date date = new Date();
 
-    public Expense(double expenseDouble, String expenseName, EExpenseCategory eExpenseCategory) {
+    public Expense(double expenseDouble, String expenseName, EExpenseCategory eExpenseCategory, Date date) {
         this.expenseDouble = expenseDouble;
         this.expenseName = expenseName;
         this.eExpenseCategory = eExpenseCategory;
+        this.date = date;
     }
 
     public Expense() {
 
+    }
+    public Date getDate(){
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public double getExpenseDouble() {

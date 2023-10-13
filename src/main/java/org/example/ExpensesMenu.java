@@ -1,7 +1,5 @@
 package org.example;
 
-import com.sun.tools.javac.Main;
-
 import java.io.IOException;
 
 public class ExpensesMenu {
@@ -14,7 +12,7 @@ public class ExpensesMenu {
                 new ExpensesMenu();
             }
                 case "2" :
-                System.out.println("working on removing");
+                new RemoveExpense();
             case "3" :
                 if (ExpenseStorage.expenseList == null){
                     System.out.println("There are no expenses added.\n");
