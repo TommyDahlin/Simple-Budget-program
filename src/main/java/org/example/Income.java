@@ -1,17 +1,24 @@
 package org.example;
 
+import java.util.Date;
+
 public class Income extends Transaction{
     public double incomeDouble;
     public String incomeName;
     public EIncomeCategory eIncomeCategory;
-    public Income(double incomeDouble, String incomeName, EIncomeCategory eIncomeCategory) {
+    public Date date = new Date();
+    public Income(double incomeDouble, String incomeName, EIncomeCategory eIncomeCategory, Date date) {
         this.incomeDouble = incomeDouble;
         this.incomeName = incomeName;
         this.eIncomeCategory = eIncomeCategory;
+        this.date = date;
     }
 
     public Income() {
 
+    }
+    public void setIncomeDate(){
+        this.date = date;
     }
 
     public double getIncomeDouble() {

@@ -2,13 +2,13 @@ package org.example;
 
 import java.io.IOException;
 
-public class RemoveIncome {
-    RemoveIncome() throws IOException {
+public class RemoveExpense {
+    RemoveExpense() throws IOException {
         System.out.println("Which Income do you want to change? Choose by ID");
-        new ListIncome();
+        new ListExpenses();
         int choice = Integer.parseInt(InputReader.BufferedReaderOut());
-        IncomeStorage.incomeList.remove((choice-1));
-        new WriteIncomeToFile();
+        ExpenseStorage.expenseList.remove((choice-1));
+        new WriteExpenseToFile();
         new IncomeMenu();
-        }
     }
+}

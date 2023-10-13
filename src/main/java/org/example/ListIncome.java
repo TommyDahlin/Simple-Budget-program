@@ -8,6 +8,7 @@ public class ListIncome {
             System.out.println(IncomeStorage.incomeList.get(i).incomeName);
             System.out.println(IncomeStorage.incomeList.get(i).incomeDouble);
             System.out.println(IncomeStorage.incomeList.get(i).eIncomeCategory.getCategory());
+            System.out.println("ID: " + (i+1));
         }
     }
 }

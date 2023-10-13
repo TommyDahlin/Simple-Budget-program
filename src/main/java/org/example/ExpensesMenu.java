@@ -13,8 +13,7 @@ public class ExpensesMenu {
                 new CreateExpense();
                 new ExpensesMenu();
             }
-                case "2" :
-                System.out.println("working on removing");
+                case "2" : new RemoveExpense();
             case "3" :
                 if (ExpenseStorage.expenseList == null){
                     System.out.println("There are no expenses added.\n");
