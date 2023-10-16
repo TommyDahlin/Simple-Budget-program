@@ -11,7 +11,6 @@ public class CreateIncome {
         for (int i = 0; i < iAmt; i++) {
 
 
-        System.out.println("create income object");
         Income income = new Income();
         System.out.println("Name");
         income.setIncomeName(InputReader.BufferedReaderOut());

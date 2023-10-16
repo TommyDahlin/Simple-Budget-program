@@ -1,18 +1,17 @@
 package org.example;
+import java.io.IOException;
 
-import java.util.ArrayList;
 
 public class User {
     public String firstName;
     public String lastName;
-    public ArrayList<User> users = new ArrayList<>();
-    public User(String firstName, String lastName) {
+
+    public User(String firstName, String lastName) throws IOException {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public User() {
-
+    public User() throws IOException {
     }
 
     public String getFirstName() {
@@ -30,4 +29,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
 }

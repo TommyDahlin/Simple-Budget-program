@@ -23,6 +23,10 @@ public class IncomeMenu {
             }
             case "4" -> new ChangeIncome();
             case "5" -> new MainMenu();
+            case "6" -> {
+                System.out.println("You have to input a valid choice.");
+                new IncomeMenu();
+            }
         }
     }
 }
