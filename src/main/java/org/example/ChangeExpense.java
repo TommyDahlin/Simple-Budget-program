@@ -25,23 +25,23 @@ public class ChangeExpense {
                 System.out.println("[1] Food \n[2] Gas \n[3] Rent \n[4] Fun \n[5] Other");
                 switch(choice) {
                     case 1: {
-                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(EExpenseCategory.FOOD);
+                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(ECategory.FOOD);
                         new ExpensesMenu();
                     }
                     case 2: {
-                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(EExpenseCategory.GAS);
+                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(ECategory.GAS);
                         new ExpensesMenu();
                     }
                     case 3: {
-                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(EExpenseCategory.RENT);
+                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(ECategory.RENT);
                         new ExpensesMenu();
                     }
                     case 4: {
-                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(EExpenseCategory.FUN);
+                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(ECategory.FUN);
                         new ExpensesMenu();
                     }
                     case 5: {
-                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(EExpenseCategory.OTHER);
+                        ExpenseStorage.expenseList.get(choice).seteExpenseCategory(ECategory.OTHER);
                         new ExpensesMenu();
                     }
                     default:

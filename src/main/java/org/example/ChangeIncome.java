@@ -27,15 +27,15 @@ public class ChangeIncome {
                changeChoice = InputReader.BufferedReaderOut();
                 switch (changeChoice) {
                     case "1": {
-                        IncomeStorage.incomeList.get(choice).seteIncomeCategory(EIncomeCategory.WAGE);
+                        IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.WAGE);
                         new IncomeMenu();
                     }
                     case "2": {
-                        IncomeStorage.incomeList.get(choice).seteIncomeCategory(EIncomeCategory.SERVICES);
+                        IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.SERVICES);
                         new IncomeMenu();
                     }
                     case "3":{
-                        IncomeStorage.incomeList.get(choice).seteIncomeCategory(EIncomeCategory.OTHER);
+                        IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.OTHER);
                         new IncomeMenu();
                 }
                     default :

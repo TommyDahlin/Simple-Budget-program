@@ -1,7 +1,6 @@
 package org.example;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CreateExpense {
@@ -25,14 +24,14 @@ public class CreateExpense {
         new WriteExpenseToFile();
         new ExpensesMenu();
     }
-    public EExpenseCategory getExpenseCat() throws IOException {
+    public ECategory getExpenseCat() throws IOException {
         String check = InputReader.BufferedReaderOut();
         switch (check) {
-            case "1": return EExpenseCategory.FOOD;
-            case "2": return EExpenseCategory.GAS;
-            case "3": return EExpenseCategory.RENT;
-            case "4": return EExpenseCategory.FUN;
-            case "5": return EExpenseCategory.OTHER;
+            case "1": return ECategory.FOOD;
+            case "2": return ECategory.GAS;
+            case "3": return ECategory.RENT;
+            case "4": return ECategory.FUN;
+            case "5": return ECategory.OTHER;
             default : return null;
         }
 
