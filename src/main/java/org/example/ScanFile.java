@@ -24,9 +24,12 @@ public class ScanFile {
 
             Expense[] expenses;
             expenses = gson.fromJson(fr, Expense[].class);
-            for (Expense expense : expenses) {
-                ExpenseStorage.expenseList = Arrays.asList(expenses);
-            }
+        for (int i = 0; i < expenses.length; i++) {
+            Expense expense = (Expense) Array.get(expenses, i);
+            ExpenseStorage.expenseList.add(expense);
+        }
+
+
 
             fr = new FileReader(FileLocation.userLocation);
             User[] users;

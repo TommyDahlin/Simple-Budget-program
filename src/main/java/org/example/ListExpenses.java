@@ -6,6 +6,8 @@ public class ListExpenses {
             System.out.println((ExpenseStorage.expenseList.get(i).expenseName));
             System.out.println((ExpenseStorage.expenseList.get(i).expenseDouble));
             System.out.println((ExpenseStorage.expenseList.get(i).eExpenseCategory.getCategory()));
+            System.out.println("Date added: " + ExpenseStorage.expenseList.get(i).date);
+            System.out.println("Id: " + (i+1));
         }
     }
 }
