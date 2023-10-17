@@ -19,7 +19,7 @@ public class BudgetCalc {
         System.out.println("Total expenses are: " + expenseAdd);
         System.out.println("Your budget is: " + (incomeAdd-expenseAdd));
         if (incomeAdd-expenseAdd <= 0){
-            System.out.println("you're broke.");
+            System.out.println("You're broke.");
         }
         new MainMenu();
     }

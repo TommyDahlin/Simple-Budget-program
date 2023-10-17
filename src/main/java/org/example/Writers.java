@@ -24,20 +24,6 @@ public class Writers {
             gson.toJson(IncomeStorage.incomeList, ifw);
             ifw.flush();
         }
-        public void CloseIncomeWriter() throws IOException {
-            ifw.close();
-        }
-    }
-    public static class WriteExpenseToFile {
-        private Gson gson = new Gson();
-        private FileWriter efw = new FileWriter(FileLocation.expenseLocation);
-        public WriteExpenseToFile() throws IOException {
-            gson.toJson(ExpenseStorage.expenseList, efw);
-            efw.flush();
-        }
-        public void CloseExpenseWriter() throws IOException {
-            efw.close();
-        }
     }
 }
 

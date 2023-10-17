@@ -10,19 +10,19 @@ public class ExpensesMenu {
         String choice = InputReader.BufferedReaderOut();
         switch (choice){
             case "1" : {
-                new CreateExpense();
+                new ExpenseStorage().CreateExpense();
                 new ExpensesMenu();
             }
-                case "2" : new RemoveExpense();
+                case "2" : new ExpenseStorage().RemoveExpense();
             case "3" :
                 if (ExpenseStorage.expenseList == null){
                     System.out.println("There are no expenses added.\n");
                     new ExpensesMenu();
                 }else {
-                    new ListExpenses();
+                    new ExpenseStorage().ListExpenses();
                     new ExpensesMenu();
                 }
-            case "4" : new ChangeExpense();
+            case "4" : new ExpenseStorage().ChangeExpense();
             case "5" : new MainMenu();
             default:
                 System.out.println("Type a valid number.");

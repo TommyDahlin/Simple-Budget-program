@@ -13,24 +13,8 @@ public class ScanFile {
         //Inits the Gson, filereader and Income Array.
 
             Gson gson = new Gson();
-        Income[] incomes;
-        FileReader fr = new FileReader(FileLocation.incomeLocation);
-        incomes = gson.fromJson(fr, Income[].class);
-        for (int i = 0; i < incomes.length; i++) {
-            Income income = (Income) Array.get(incomes, i);
-            IncomeStorage.incomeList.add(income);
-        }
 
-            fr = new FileReader(FileLocation.expenseLocation);
-
-            Expense[] expenses;
-            expenses = gson.fromJson(fr, Expense[].class);
-        for (int i = 0; i < expenses.length; i++) {
-            Expense expense = (Expense) Array.get(expenses, i);
-            ExpenseStorage.expenseList.add(expense);
-        }
-
-            fr = new FileReader(FileLocation.userLocation);
+            FileReader fr = new FileReader(FileLocation.userLocation);
             User[] users;
             users = gson.fromJson(fr, User[].class);
             for (int i = 0; i < users.length; i++){

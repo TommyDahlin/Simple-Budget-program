@@ -12,6 +12,11 @@ public class InputReader {
     public static int BufferedReaderInt() throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         int bfInput = Integer.parseInt(input.readLine());
-        return bfInput;
+            return bfInput;
+        }
+        public static double BufferedReaderDouble() throws IOException{
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            double bfInput = Double.parseDouble(input.readLine());
+            return bfInput;
     }
 }

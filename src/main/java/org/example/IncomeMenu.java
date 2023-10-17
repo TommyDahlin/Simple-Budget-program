@@ -8,20 +8,20 @@ public class IncomeMenu {
         String choice = InputReader.BufferedReaderOut();
         switch (choice) {
             case "1" -> {
-                new CreateIncome();
+                new IncomeStorage().CreateIncome();
                 new IncomeMenu();
             }
-            case "2" -> new RemoveIncome();
+            case "2" -> new IncomeStorage().RemoveIncome();
             case "3" -> {
                 if (IncomeStorage.incomeList == null){
                 System.out.println("There are no incomes added. \n");
                 new IncomeMenu();
             } else {
-                    new ListIncome();
+                    new IncomeStorage().ListIncome();
                     new IncomeMenu();
                 }
             }
-            case "4" -> new ChangeIncome();
+            case "4" -> new IncomeStorage().ChangeIncome();
             case "5" -> new MainMenu();
             case "6" -> {
                 System.out.println("You have to input a valid choice.");

@@ -3,7 +3,6 @@ package org.example;
 import java.util.Date;
 
 public class Expense extends Transaction{
-    public double expenseDouble;
     public String expenseName;
     public ECategory ECategory;
 
@@ -13,7 +12,6 @@ public class Expense extends Transaction{
     }
 
     public Expense(String expenseName, ECategory ECategory) {
-        this.expenseDouble = expenseDouble;
         this.expenseName = expenseName;
         this.ECategory = ECategory;
     }
@@ -21,15 +19,6 @@ public class Expense extends Transaction{
     public Expense() {
 
     }
-
-    public double getExpenseDouble() {
-        return expenseDouble;
-    }
-
-    public void setExpenseDouble(double expenseDouble) {
-        this.expenseDouble = expenseDouble;
-    }
-
     public String getExpenseName() {
         return expenseName;
     }
