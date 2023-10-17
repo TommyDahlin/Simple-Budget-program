@@ -1,18 +1,10 @@
 package org.example;
 import java.util.Date;
 
+// Transaction holds the amount and date variables that are inherited to both Income Class and Expense Class.
 public class Transaction {
-    public static final String filepath = "src/main/user.json";
     public double amount;
     Date date = new Date();
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public double getAmount() {
         return amount;

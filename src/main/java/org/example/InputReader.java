@@ -6,17 +6,14 @@ import java.io.InputStreamReader;
 public class InputReader {
     public static String BufferedReaderOut() throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        String bfInput = input.readLine();
-        return bfInput;
+        return input.readLine();
     }
     public static int BufferedReaderInt() throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        int bfInput = Integer.parseInt(input.readLine());
-            return bfInput;
+        return Integer.parseInt(input.readLine());
         }
         public static double BufferedReaderDouble() throws IOException{
             BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-            double bfInput = Double.parseDouble(input.readLine());
-            return bfInput;
+            return Double.parseDouble(input.readLine());
     }
 }

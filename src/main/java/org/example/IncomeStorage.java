@@ -29,7 +29,7 @@ public class IncomeStorage {
     public void CreateIncome() throws IOException {
         System.out.println("How many incomes do you want to add?");
         //Simple for loop to choose how many objects you want to create.
-        int iAmt = Integer.parseInt(InputReader.BufferedReaderOut());
+        int iAmt = InputReader.BufferedReaderInt();
         for (int i = 0; i < iAmt; i++) {
 
             // Inits a new Income Object, and through default constructor fills in all the needed fields, date and amount gets inherited from Transaction Class
@@ -74,7 +74,7 @@ public class IncomeStorage {
     public void ChangeIncome() throws IOException {
         System.out.println("Choose income to change by ID.");
         new IncomeStorage().ListIncome();
-        int choice = Integer.parseInt(InputReader.BufferedReaderOut());
+        int choice = InputReader.BufferedReaderInt();
         choice = choice - 1;
         System.out.println("What do you want to change? [1] Name [2] Amount [3] Category");
         String changeChoice = InputReader.BufferedReaderOut();
@@ -121,9 +121,9 @@ public class IncomeStorage {
     void RemoveIncome() throws IOException {
         System.out.println("Which Income do you want to change? Choose by ID");
         new IncomeStorage().ListIncome();
-        int choice = Integer.parseInt(InputReader.BufferedReaderOut());
+        int choice = InputReader.BufferedReaderInt();
         IncomeStorage.incomeList.remove((choice - 1));
-        new Writers.WriteIncomeToFile();
+        new WriteIncomeToFile();
         new IncomeMenu();
     }
 

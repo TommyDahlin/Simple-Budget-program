@@ -29,7 +29,7 @@ public class ExpenseStorage{
     }
     public void CreateExpense() throws IOException {
         System.out.println("How many expenses do you want to add?");
-        int eAmt = Integer.parseInt(InputReader.BufferedReaderOut());
+        int eAmt = InputReader.BufferedReaderInt();
         for (int i = 0; i < eAmt; i++) {
 
 
@@ -38,7 +38,7 @@ public class ExpenseStorage{
             System.out.println("Name your expense.");
             expense.setExpenseName(InputReader.BufferedReaderOut());
             System.out.println("Amount.");
-            expense.setAmount(Double.parseDouble(InputReader.BufferedReaderOut()));
+            expense.setAmount(InputReader.BufferedReaderDouble());
             System.out.println("Choose a category through a number: \n[1] Food\n[2] Gas\n[3] Rent\n[4] Fun\n[5] Other");
             expense.seteExpenseCategory(getExpenseCat());
             expenseList.add(expense);
@@ -73,7 +73,7 @@ public class ExpenseStorage{
     public void ChangeExpense() throws IOException {
         new ExpenseStorage().ListExpenses();
         System.out.println("Choose expense to change by ID.");
-        int choice = Integer.parseInt(InputReader.BufferedReaderOut());
+        int choice = InputReader.BufferedReaderInt();
         choice = choice - 1;
         System.out.println("What do you want to change? [1] Name [2] Amount [3] Category");
         String changeChoice = InputReader.BufferedReaderOut();
@@ -84,8 +84,8 @@ public class ExpenseStorage{
                 new ExpensesMenu();
             }
             case "2": {
-                System.out.println("Input amount: ");
-                ExpenseStorage.expenseList.get(choice).setAmount(Double.parseDouble(InputReader.BufferedReaderOut()));
+                System.out.println("Input new amount: ");
+                ExpenseStorage.expenseList.get(choice).setAmount(InputReader.BufferedReaderDouble());
                 new ExpensesMenu();
             }
             case "3":{
@@ -125,7 +125,7 @@ public class ExpenseStorage{
     public void RemoveExpense() throws IOException {
         System.out.println("Which Income do you want to change? Choose by ID");
         new ExpenseStorage().ListExpenses();
-        int choice = Integer.parseInt(InputReader.BufferedReaderOut());
+        int choice =InputReader.BufferedReaderInt();
         ExpenseStorage.expenseList.remove((choice-1));
         new ExpenseStorage.WriteExpenseToFile();
         new IncomeMenu();
