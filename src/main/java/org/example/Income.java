@@ -3,30 +3,17 @@ package org.example;
 import java.util.Date;
 
 public class Income extends Transaction{
-    public double incomeDouble;
     public String incomeName;
     public ICategory category;
-    public Date date = new Date();
-    public Income(double incomeDouble, String incomeName, ICategory category, Date date) {
-        this.incomeDouble = incomeDouble;
+    public Income(String incomeName, ICategory category) {
         this.incomeName = incomeName;
         this.category = category;
-        this.date = date;
     }
-
+    @Override
+    public void setAmount(double amount){
+        super.setAmount(amount);
+    }
     public Income() {
-
-    }
-    public void setIncomeDate(){
-        this.date = date;
-    }
-
-    public double getIncomeDouble() {
-        return incomeDouble;
-    }
-
-    public void setIncomeDouble(double incomeDouble) {
-        this.incomeDouble = incomeDouble;
     }
 
     public String getIncomeName() {

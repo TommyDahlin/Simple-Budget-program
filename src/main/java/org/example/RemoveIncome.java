@@ -8,7 +8,7 @@ public class RemoveIncome {
         new ListIncome();
         int choice = Integer.parseInt(InputReader.BufferedReaderOut());
         IncomeStorage.incomeList.remove((choice-1));
-        new WriteIncomeToFile();
+        new Writers.WriteIncomeToFile();
         new IncomeMenu();
         }
     }

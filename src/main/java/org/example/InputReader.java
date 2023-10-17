@@ -9,4 +9,9 @@ public class InputReader {
         String bfInput = input.readLine();
         return bfInput;
     }
+    public static int BufferedReaderInt() throws IOException {
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        int bfInput = Integer.parseInt(input.readLine());
+        return bfInput;
+    }
 }

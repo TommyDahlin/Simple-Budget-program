@@ -8,7 +8,7 @@ public class RemoveExpense {
         new ListExpenses();
         int choice = Integer.parseInt(InputReader.BufferedReaderOut());
         ExpenseStorage.expenseList.remove((choice-1));
-        new WriteExpenseToFile();
+        new Writers.WriteExpenseToFile();
         new IncomeMenu();
     }
 }

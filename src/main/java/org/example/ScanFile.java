@@ -11,15 +11,16 @@ import java.util.Arrays;
 public class ScanFile {
     public void ScanFileIn() throws IOException {
         //Inits the Gson, filereader and Income Array.
-        Gson gson = new Gson();
+
+            Gson gson = new Gson();
         Income[] incomes;
         FileReader fr = new FileReader(FileLocation.incomeLocation);
-
         incomes = gson.fromJson(fr, Income[].class);
         for (int i = 0; i < incomes.length; i++) {
             Income income = (Income) Array.get(incomes, i);
             IncomeStorage.incomeList.add(income);
         }
+
             fr = new FileReader(FileLocation.expenseLocation);
 
             Expense[] expenses;
@@ -28,8 +29,6 @@ public class ScanFile {
             Expense expense = (Expense) Array.get(expenses, i);
             ExpenseStorage.expenseList.add(expense);
         }
-
-
 
             fr = new FileReader(FileLocation.userLocation);
             User[] users;

@@ -6,13 +6,16 @@ public class Expense extends Transaction{
     public double expenseDouble;
     public String expenseName;
     public ECategory ECategory;
-    public Date date = new Date();
 
-    public Expense(double expenseDouble, String expenseName, ECategory ECategory, Date date) {
+    @Override
+    public void setAmount(double amount) {
+        super.setAmount(amount);
+    }
+
+    public Expense(String expenseName, ECategory ECategory) {
         this.expenseDouble = expenseDouble;
         this.expenseName = expenseName;
         this.ECategory = ECategory;
-        this.date = date;
     }
 
     public Expense() {

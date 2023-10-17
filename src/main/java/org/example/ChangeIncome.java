@@ -18,7 +18,7 @@ public class ChangeIncome {
             }
             case "2": {
                 System.out.println("Input amount:");
-                IncomeStorage.incomeList.get(choice).setIncomeDouble(Double.parseDouble(InputReader.BufferedReaderOut()));
+                IncomeStorage.incomeList.get(choice).setAmount(Double.parseDouble(InputReader.BufferedReaderOut()));
                 new IncomeMenu();
                 break;
             }
