@@ -1,28 +1,16 @@
 package org.example;
 
+// Expense class mirroring Income class in comments.
 public class Expense extends Transaction{
-    public double expenseDouble;
     public String expenseName;
-    public EExpenseCategory eExpenseCategory;
+    public ECategory ECategory;
 
-    public Expense(double expenseDouble, String expenseName, EExpenseCategory eExpenseCategory) {
-        this.expenseDouble = expenseDouble;
-        this.expenseName = expenseName;
-        this.eExpenseCategory = eExpenseCategory;
+    @Override
+    public void setAmount(double amount) {
+        super.setAmount(amount);
     }
-
     public Expense() {
-
     }
-
-    public double getExpenseDouble() {
-        return expenseDouble;
-    }
-
-    public void setExpenseDouble(double expenseDouble) {
-        this.expenseDouble = expenseDouble;
-    }
-
     public String getExpenseName() {
         return expenseName;
     }
@@ -31,11 +19,40 @@ public class Expense extends Transaction{
         this.expenseName = expenseName;
     }
 
-    public EExpenseCategory geteExpenseCategory() {
-        return eExpenseCategory;
+    public ECategory geteExpenseCategory() {
+        return ECategory;
     }
 
-    public void seteExpenseCategory(EExpenseCategory eExpenseCategory) {
-        this.eExpenseCategory = eExpenseCategory;
+    public void seteExpenseCategory(ECategory ECategory) {
+        this.ECategory = ECategory;
     }
 }
+
+enum ECategory {
+    FOOD("Food", 1),
+    GAS("Gas", 2),
+    RENT("Rent", 3),
+    FUN("Fun", 4),
+    OTHER("Other", 5),
+    ;
+
+    ECategory(String c, int o) {
+        this.category = c;
+        this.ordinal = o;
+    }
+    private String category;
+    private int ordinal;
+    ECategory(int o){
+        this.ordinal = o;
+    }
+    public int getOrdinal(){
+        return this.ordinal;
+    }
+    ECategory(String c){
+        this.category= c;
+    }
+    public String getCategory(){
+        return this.category;
+    }
+}
+

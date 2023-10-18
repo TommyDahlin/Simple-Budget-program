@@ -1,6 +1,7 @@
 package org.example;
-
 import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
 
 public class UserMenu extends User {
     public UserMenu() throws IOException {
@@ -9,20 +10,16 @@ public class UserMenu extends User {
         String choice = InputReader.BufferedReaderOut();
             switch (choice) {
                 case "1":
-                    System.out.println(getFirstName()+ " "+ getLastName() );
+                    for (int i = 0; i < UserStorage.userList.size(); i++) {
+                        System.out.println(UserStorage.userList.get(i).firstName + " " + UserStorage.userList.get(i).lastName);
+                    }
                     new UserMenu();
                     case "2":
-                    System.out.println("Add user.\nInput your First name.");
-                    String firstname = InputReader.BufferedReaderOut();
-                    System.out.println("Input your last name.");
-                    String lastname = InputReader.BufferedReaderOut();
-                    User user = new User(firstname, lastname);
-                    users.add(user);
-                    System.out.println(user.firstName + " " + user.lastName);
-                    new UserMenu();
+                        new UserStorage().CreateUser();
+                        new UserMenu();
                     break;
                 case "3":
-                    System.out.println("Remove user.");
+                    new UserStorage().RemoveUser();
                     new UserMenu();
                     break;
 

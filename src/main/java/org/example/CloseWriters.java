@@ -4,7 +4,8 @@ import java.io.IOException;
 
 public class CloseWriters {
     public CloseWriters() throws IOException {
-        new WriteIncomeToFile().CloseIncomeWriter();
-        new WriteExpenseToFile().CloseExpenseWriter();
+        new IncomeStorage.WriteIncomeToFile().CloseIncomeWriter();
+        new ExpenseStorage.WriteExpenseToFile().CloseExpenseWriter();
+        new Writers.WriteUserToFile().CloseUserWriter();
     }
 }

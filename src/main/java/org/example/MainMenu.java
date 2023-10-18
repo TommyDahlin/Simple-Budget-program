@@ -36,6 +36,10 @@ public class MainMenu {
                 System.exit(0);
                 break;
             }
+            default -> {
+                System.out.println("You have to input a menu choice.");
+                new MainMenu();
+            }
         }
     }
 }
