@@ -19,8 +19,20 @@ public class ExpensesMenu {
                     System.out.println("There are no expenses added.\n");
                     new ExpensesMenu();
                 }else {
-                    new ExpenseStorage().ListExpenses();
-                    new ExpensesMenu();
+                    System.out.println("[1]List full details by time added. \n[2] List category Rent\n[3] List category Gas\n[4] List category Food \n[5] List category Fun \n[6] List category Other");
+                    choice = InputReader.BufferedReaderOut();
+                    switch (choice) {
+                        case "1" -> {
+                            new ExpenseStorage().ListExpenses();
+                            new ExpensesMenu();
+                        }
+                        case "2" -> ExpenseStorage.ListByCatRent();
+                        case "3" -> ExpenseStorage.ListByCatGas();
+                        case "4" -> ExpenseStorage.ListByCatFood();
+                        case "5" -> ExpenseStorage.ListByCatFun();
+                        case "6" -> ExpenseStorage.ListByCatOther();
+                    }
+
                 }
             case "4" : new ExpenseStorage().ChangeExpense();
             case "5" : new MainMenu();

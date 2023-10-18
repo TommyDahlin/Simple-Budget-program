@@ -2,16 +2,21 @@ package org.example;
 
 import com.google.gson.Gson;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
+// IncomeStorage class, is where all the income objects are handled within the program.
 public class IncomeStorage {
     public static ArrayList<Income> incomeList = new ArrayList<>();
 
+
+    // write income to file initializes the Gson and the filewriter.
     public static class WriteIncomeToFile {
         private Gson gson = new Gson();
         private FileWriter ifw = new FileWriter(FileLocation.incomeLocation);
@@ -21,6 +26,7 @@ public class IncomeStorage {
             ifw.flush();
         }
 
+        // CloseIncomeWriter so when the program exits it closes it to circumvent issues.
         public void CloseIncomeWriter() throws IOException {
             ifw.close();
         }
@@ -32,13 +38,13 @@ public class IncomeStorage {
         int iAmt = InputReader.BufferedReaderInt();
         for (int i = 0; i < iAmt; i++) {
 
-            // Inits a new Income Object, and through default constructor fills in all the needed fields, date and amount gets inherited from Transaction Class
+            // Inits a new Income Object through the default constructor then fills in all the needed fields, date and amount gets inherited from Transaction Class
             Income income = new Income();
             System.out.println("Name");
             income.setIncomeName(InputReader.BufferedReaderOut());
             System.out.println("Amount");
             income.setAmount((Double.parseDouble(InputReader.BufferedReaderOut())));
-            //Only way I found to make the incomecategory get stuck to the obj.
+            //Only way I found to make the incomecategory get set to the obj.
             System.out.println("Choose a category through a number: [1] Wage, [2] Services, [3] Other");
             income.setIncomeCategory(getIncomeCat());
             List<Income> incomeList = new IncomeStorage().incomeList;
@@ -61,80 +67,112 @@ public class IncomeStorage {
         return getIncomeCat();
     }
 
-    public void ListIncome() {
+    // Simple for loop to list everything in the objectList
+    public void ListIncomeFull() throws IOException {
         for (int i = 0; i < IncomeStorage.incomeList.size(); i++) {
-            System.out.println(IncomeStorage.incomeList.get(i).incomeName);
+            System.out.println("Name: " + IncomeStorage.incomeList.get(i).incomeName);
             System.out.println("Income amount " + IncomeStorage.incomeList.get(i).amount);
             System.out.println(IncomeStorage.incomeList.get(i).category.getCategory());
             System.out.println("Date added: " + IncomeStorage.incomeList.get(i).date);
-            System.out.println("ID: " + (i + 1));
+            System.out.println("ID: " + IncomeStorage.incomeList.get(i).id + "\n");
+        }
+    }
+    public void ListByCatWage(){
+        for (Income income : incomeList) {
+            if (income.getIncomeCategory() == ICategory.WAGE) {
+                System.out.println(income.getIncomeName() + " " + income.category.getCategory() + " " + income.amount);
+                System.out.println("ID: " );
+            }
+        }
+    }
+    public void ListByCatServices(){
+        for (Income income : incomeList) {
+            if (income.getIncomeCategory() == ICategory.SERVICES) {
+                System.out.println(income.getIncomeName() + " " + income.category.getCategory() + " " + income.amount);
+            }
+        }
+    }
+    public void ListByCatOther(){
+        for (Income income : incomeList) {
+            if (income.getIncomeCategory() == ICategory.OTHER) {
+                System.out.println(income.getIncomeName() + " " + income.category.getCategory() + " " + income.amount);
+            }
         }
     }
 
-    public void ChangeIncome() throws IOException {
-        System.out.println("Choose income to change by ID.");
-        new IncomeStorage().ListIncome();
-        int choice = InputReader.BufferedReaderInt();
-        choice = choice - 1;
-        System.out.println("What do you want to change? [1] Name [2] Amount [3] Category");
-        String changeChoice = InputReader.BufferedReaderOut();
-        switch (changeChoice) {
-            case "1": {
-                System.out.println("Type the name:");
-                IncomeStorage.incomeList.get(choice).setIncomeName(InputReader.BufferedReaderOut());
-                new IncomeMenu();
-                break;
+        // Simplest and most user-friendly way i could get to Change an income object.
+        public void ChangeIncome() throws IOException {
+            System.out.println("Choose income to change by ID.");
+            new IncomeStorage().ListIncomeFull();
+            int choice = InputReader.BufferedReaderInt();
+            choice = choice - 1;
+            System.out.println("What do you want to change? [1] Name [2] Amount [3] Category");
+            String changeChoice = InputReader.BufferedReaderOut();
+            switch (changeChoice) {
+                case "1": {
+                    System.out.println("Type the name:");
+                    IncomeStorage.incomeList.get(choice).setIncomeName(InputReader.BufferedReaderOut());
+                    new IncomeMenu();
+                    break;
+                }
+                case "2": {
+                    System.out.println("Input amount:");
+                    IncomeStorage.incomeList.get(choice).setAmount(InputReader.BufferedReaderDouble());
+                    new IncomeMenu();
+                    break;
+                }
+                case "3": {
+                    System.out.println("Choose a category. [1] Wage. [2] Services [3] Other");
+                    changeChoice = InputReader.BufferedReaderOut();
+                    switch (changeChoice) {
+                        case "1": {
+                            IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.WAGE);
+                            new IncomeMenu();
+                        }
+                        case "2": {
+                            IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.SERVICES);
+                            new IncomeMenu();
+                        }
+                        case "3": {
+                            IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.OTHER);
+                            new IncomeMenu();
+                        }
+                        default:
+                            System.out.println("Type a valid number.");
+                            new IncomeStorage().ChangeIncome();
+                    }
+                }
+                default:
+                    System.out.println("Type a valid number.");
+                    new IncomeStorage().ChangeIncome();
             }
-            case "2": {
-                System.out.println("Input amount:");
-                IncomeStorage.incomeList.get(choice).setAmount(InputReader.BufferedReaderDouble());
-                new IncomeMenu();
-                break;
-            }
-            case "3": {
-                System.out.println("Choose a category. [1] Wage. [2] Services [3] Other");
-                changeChoice = InputReader.BufferedReaderOut();
-                switch (changeChoice) {
-                    case "1": {
-                        IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.WAGE);
-                        new IncomeMenu();
-                    }
-                    case "2": {
-                        IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.SERVICES);
-                        new IncomeMenu();
-                    }
-                    case "3": {
-                        IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.OTHER);
-                        new IncomeMenu();
-                    }
-                    default:
-                        System.out.println("Type a valid number.");
-                        new IncomeStorage().ChangeIncome();
+        }
+
+        void RemoveIncome() throws IOException {
+            System.out.println("Which Income do you want to change? Choose by ID");
+            new IncomeStorage().ListIncomeFull();
+            int choice = InputReader.BufferedReaderInt();
+            IncomeStorage.incomeList.remove((choice - 1));
+            for (Income income : incomeList){
+                int newID = Integer.parseInt(income.id);
+                if (newID <= 1){
+                    income.id = "1";
+                }else {
+                    income.id = String.valueOf((newID - 1));
                 }
             }
-            default:
-                System.out.println("Type a valid number.");
-                new IncomeStorage().ChangeIncome();
+            new WriteIncomeToFile();
+            new IncomeMenu();
+        }
+
+        public void ReadIncome() throws FileNotFoundException {
+            Gson gson = new Gson();
+            Income[] incomes;
+            FileReader fr = new FileReader(FileLocation.incomeLocation);
+            incomes = gson.fromJson(fr, Income[].class);
+            for (int i = 0; i < incomes.length; i++) {
+                Income income = (Income) Array.get(incomes, i);
+                IncomeStorage.incomeList.add(income);
+            }
         }
     }
-
-    void RemoveIncome() throws IOException {
-        System.out.println("Which Income do you want to change? Choose by ID");
-        new IncomeStorage().ListIncome();
-        int choice = InputReader.BufferedReaderInt();
-        IncomeStorage.incomeList.remove((choice - 1));
-        new WriteIncomeToFile();
-        new IncomeMenu();
-    }
-
-    public void ReadIncome() throws IOException {
-        Gson gson = new Gson();
-        Income[] incomes;
-        FileReader fr = new FileReader(FileLocation.incomeLocation);
-        incomes = gson.fromJson(fr, Income[].class);
-        for (int i = 0; i < incomes.length; i++) {
-            Income income = (Income) Array.get(incomes, i);
-            IncomeStorage.incomeList.add(income);
-        }
-    }
-}
