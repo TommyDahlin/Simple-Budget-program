@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
+// ExpenseStorage is mirrored with IncomeStorage, meaning they are built the same but with other names.
 public class ExpenseStorage{
     public static ArrayList<Expense> expenseList = new ArrayList<>();
     public static class WriteExpenseToFile {
@@ -24,15 +24,10 @@ public class ExpenseStorage{
             efw.close();
         }
     }
-    public void expenseListAdd(Expense expense){
-        expenseList.add(expense);
-    }
     public void CreateExpense() throws IOException {
         System.out.println("How many expenses do you want to add?");
         int eAmt = InputReader.BufferedReaderInt();
         for (int i = 0; i < eAmt; i++) {
-
-
             System.out.println("Create an expense.");
             Expense expense = new Expense();
             System.out.println("Name your expense.");

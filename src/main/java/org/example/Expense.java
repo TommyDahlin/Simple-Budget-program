@@ -1,7 +1,6 @@
 package org.example;
 
-import java.util.Date;
-
+// Expense class mirroring Income class in comments.
 public class Expense extends Transaction{
     public String expenseName;
     public ECategory ECategory;
@@ -10,14 +9,7 @@ public class Expense extends Transaction{
     public void setAmount(double amount) {
         super.setAmount(amount);
     }
-
-    public Expense(String expenseName, ECategory ECategory) {
-        this.expenseName = expenseName;
-        this.ECategory = ECategory;
-    }
-
     public Expense() {
-
     }
     public String getExpenseName() {
         return expenseName;
@@ -35,6 +27,7 @@ public class Expense extends Transaction{
         this.ECategory = ECategory;
     }
 }
+
 enum ECategory {
     FOOD("Food", 1),
     GAS("Gas", 2),

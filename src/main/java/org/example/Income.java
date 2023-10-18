@@ -1,5 +1,6 @@
 package org.example;
-
+// Income class extends transaction with Amount and Date.
+// Made 3 enums for the class, for income categories.
 public class Income extends Transaction{
     public String incomeName;
     public ICategory category;
