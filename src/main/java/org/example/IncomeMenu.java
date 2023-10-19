@@ -2,8 +2,9 @@ package org.example;
 import java.io.*;
 
 public class IncomeMenu {
+    // Simple Menu for incomes.
     public IncomeMenu() throws IOException {
-        System.out.println("[1] Add Source(s) of income.\n[2] Remove Source of income.\n[3] List income.\n[4] Change Income.\n[5] Go back to main menu.");
+        System.out.println("[1] Add Source(s) of income.\n[2] Remove Source of income.\n[3] List income.\n[4] Change Income.\n[5] Search for income. \n[6] Go back to main menu.");
         String choice = InputReader.BufferedReaderOut();
         switch (choice) {
             case "1" -> {
@@ -38,7 +39,8 @@ public class IncomeMenu {
                 }
             }
             case "4" -> new IncomeStorage().ChangeIncome();
-            case "5" -> new MainMenu();
+            case "5" -> new IncomeStorage().SearchIncome();
+            case "6" -> new MainMenu();
             default-> {
                 System.out.println("You have to input a valid choice.");
                 new IncomeMenu();

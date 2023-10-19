@@ -46,6 +46,7 @@ public class Income extends Transaction{
     }
 }
 // enums with oridnals and Category names for ease of use.
+// Not sure why i added the implements, it was an auto-fix that intellij suggested and it made the program work.
 enum ICategory implements Consumer<Income> {
     WAGE("Wage", 1),
     SERVICES("Services", 2),

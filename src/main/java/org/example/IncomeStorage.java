@@ -77,6 +77,7 @@ public class IncomeStorage {
             System.out.println("ID: " + IncomeStorage.incomeList.get(i).id + "\n");
         }
     }
+    // Wasn't sure if i should've put these in another class but they're at least where all the other incomehandling is.
     public void ListByCatWage(){
         for (Income income : incomeList) {
             if (income.getIncomeCategory() == ICategory.WAGE) {
@@ -100,7 +101,7 @@ public class IncomeStorage {
         }
     }
 
-        // Simplest and most user-friendly way i could get to Change an income object.
+        // Simplest and most user-friendly way I could get to Change an income object.
         public void ChangeIncome() throws IOException {
             System.out.println("Choose income to change by ID.");
             new IncomeStorage().ListIncomeFull();
@@ -147,7 +148,7 @@ public class IncomeStorage {
                     new IncomeStorage().ChangeIncome();
             }
         }
-
+        // Removes income and changes the id to it's index + 1, to handle the ArrayOutOfBoundsException i put in the if statement.
         void RemoveIncome() throws IOException {
             System.out.println("Which Income do you want to change? Choose by ID");
             new IncomeStorage().ListIncomeFull();
@@ -165,6 +166,7 @@ public class IncomeStorage {
             new IncomeMenu();
         }
 
+        // Readfile takes in the json file and puts it to an array and then iterates over it to add it into the arraylist.
         public void ReadIncome() throws FileNotFoundException {
             Gson gson = new Gson();
             Income[] incomes;
@@ -173,6 +175,22 @@ public class IncomeStorage {
             for (int i = 0; i < incomes.length; i++) {
                 Income income = (Income) Array.get(incomes, i);
                 IncomeStorage.incomeList.add(income);
+            }
+        }
+        // Simple EXACT search method for finding an income object.
+        public void SearchIncome() throws IOException {
+            System.out.println("Search for income by inputting name of income or id");
+            String check = InputReader.BufferedReaderOut();
+            for (Income income:
+                 IncomeStorage.incomeList) {
+                if (check.equals(income.incomeName)){
+                    System.out.println(income.incomeName + " \n" + income.id + " \n" + income.amount + " \n" + income.category);
+                }else if (check.equals(income.id)){
+                    System.out.println(income.incomeName + " \n" + income.id + " \n" + income.amount + " \n" + income.category);
+                }else {
+                    System.out.println("Couldn't find anything that matched.");
+                }
+                new IncomeMenu();
             }
         }
     }

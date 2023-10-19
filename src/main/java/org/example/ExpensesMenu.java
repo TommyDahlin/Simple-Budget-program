@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ExpensesMenu {
     public ExpensesMenu() throws IOException {
-        System.out.println("[1] Add Expenses.\n[2] Remove expenses.\n[3] List expenses. \n[4] Change an expense. \n[5] Go back to main menu");
+        System.out.println("[1] Add Expenses.\n[2] Remove expenses.\n[3] List expenses. \n[4] Change an expense. \n[5] Search for expense. \n[6] Go back to main menu");
         String choice = InputReader.BufferedReaderOut();
         switch (choice){
             case "1" : {
@@ -35,7 +35,8 @@ public class ExpensesMenu {
 
                 }
             case "4" : new ExpenseStorage().ChangeExpense();
-            case "5" : new MainMenu();
+            case "5" : new ExpenseStorage().SearchExpense();
+            case "6" : new MainMenu();
             default:
                 System.out.println("Type a valid number.");
                 new ExpensesMenu();

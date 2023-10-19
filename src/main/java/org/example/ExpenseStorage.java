@@ -184,4 +184,19 @@ public class ExpenseStorage{
             }
         }
     }
+    public void SearchExpense() throws IOException {
+        System.out.println("Search for expense by inputting name of income or id");
+        String check = InputReader.BufferedReaderOut();
+        for (Expense expense:
+                ExpenseStorage.expenseList) {
+            if (check.equals(expense.expenseName)){
+                System.out.println(expense.expenseName + " \n" + expense.id + " \n" + expense.amount + " \n" + expense.ECategory);
+            }else if (check.equals(expense.id)){
+                System.out.println(expense.expenseName + " \n" + expense.id + " \n" + expense.amount + " \n" + expense.ECategory);
+            }else {
+                System.out.println("Couldn't find anything that matched.");
+            }
+            new IncomeMenu();
+        }
+    }
 }
