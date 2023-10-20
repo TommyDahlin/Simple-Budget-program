@@ -2,18 +2,38 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class InputReader {
-    public static String BufferedReaderOut() throws IOException {
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        return input.readLine();
+
+
+    public static Double DoubleOut(){
+    Scanner scanner = new Scanner(System.in);
+    double buh = 0;
+    while (!scanner.hasNextDouble()){
+        scanner.nextLine();
     }
-    public static int BufferedReaderInt() throws IOException {
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        return Integer.parseInt(input.readLine());
+    if (scanner.hasNextDouble()){
+        buh = scanner.nextDouble();
         }
-        public static double BufferedReaderDouble() throws IOException{
-            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-            return Double.parseDouble(input.readLine());
+        scanner.nextLine();
+    return buh;
+    }
+    public static int IntOut(){
+        Scanner scanner = new Scanner(System.in);
+        int buh = 0;
+        while (!scanner.hasNextInt()){
+            scanner.nextLine();
+        }
+        if (scanner.hasNextInt()){
+            buh = scanner.nextInt();
+        }
+        scanner.nextLine();
+        return buh;
+    }
+    public static String StringOut(){
+        Scanner scanner = new Scanner(System.in);
+        String buh = scanner.nextLine();
+        return buh;
     }
 }

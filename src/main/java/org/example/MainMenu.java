@@ -2,13 +2,13 @@ package org.example;
 
 import java.io.IOException;
 
-import static org.example.InputReader.BufferedReaderOut;
+import static org.example.InputReader.StringOut;
 
 public class MainMenu {
     // Simple Main Menu.
     public MainMenu() throws IOException {
         System.out.println("Welcome to the Budget-Program.\nMake your choice.\n[1] Budget.\n[2] Income.\n[3] Expenses.\n[4] User Options.\n[0] Exit program.");
-        String choice = BufferedReaderOut();
+        String choice = StringOut();
 
         switch (choice) {
             case "1" -> {

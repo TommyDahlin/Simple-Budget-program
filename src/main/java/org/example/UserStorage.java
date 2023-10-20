@@ -27,9 +27,9 @@ public class UserStorage {
         public void CreateUser() throws IOException {
             User user = new User();
             System.out.println("Add user.\nInput your First name.");
-            user.setFirstName(InputReader.BufferedReaderOut());
+            user.setFirstName(InputReader.StringOut());
             System.out.println("Input your last name.");
-            user.setLastName(InputReader.BufferedReaderOut());
+            user.setLastName(InputReader.StringOut());
 
             System.out.println(user.firstName + " " + user.lastName);
             List<User> userList = new UserStorage().userList;
@@ -42,12 +42,12 @@ public class UserStorage {
                 System.out.println("Id: " + (i+1) + UserStorage.userList.get(i).firstName + UserStorage.userList.get(i).lastName);
             }
             System.out.println("Who do you want to remove?");
-            int removeUser = InputReader.BufferedReaderInt();
+            int removeUser = InputReader.IntOut();
             removeUser = removeUser - 1;
             System.out.println("Are you sure you want to remove " + UserStorage.userList.get(removeUser).firstName + "\ny/n?");
-            if (Objects.equals(InputReader.BufferedReaderOut(), "y"))
+            if (Objects.equals(InputReader.StringOut(), "y"))
                 UserStorage.userList.remove(removeUser);
-            else if (Objects.equals(InputReader.BufferedReaderOut(), "n")){
+            else if (Objects.equals(InputReader.StringOut(), "n")){
                 System.out.println("Operation aborted.");
                 new UserMenu();
             }

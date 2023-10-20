@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 // IncomeStorage class, is where all the income objects are handled within the program.
 public class IncomeStorage {
@@ -35,28 +34,29 @@ public class IncomeStorage {
     public void CreateIncome() throws IOException {
         System.out.println("How many incomes do you want to add?");
         //Simple for loop to choose how many objects you want to create.
-        int iAmt = InputReader.BufferedReaderInt();
+        int iAmt = InputReader.IntOut();
         for (int i = 0; i < iAmt; i++) {
 
             // Inits a new Income Object through the default constructor then fills in all the needed fields, date and amount gets inherited from Transaction Class
             Income income = new Income();
             System.out.println("Name");
-            income.setIncomeName(InputReader.BufferedReaderOut());
+            income.setIncomeName(InputReader.StringOut());
             System.out.println("Amount");
-            income.setAmount((Double.parseDouble(InputReader.BufferedReaderOut())));
+            income.setAmount((Double.parseDouble(InputReader.StringOut())));
             //Only way I found to make the incomecategory get set to the obj.
             System.out.println("Choose a category through a number: [1] Wage, [2] Services, [3] Other");
             income.setIncomeCategory(getIncomeCat());
             List<Income> incomeList = new IncomeStorage().incomeList;
             incomeList.add(income);
-            System.out.println("Name" + incomeList.get(0).incomeName + " Amount: " + incomeList.get(0).amount + " Category: " + incomeList.get(0).getIncomeCategory().getCategory());
+            System.out.println("Income added to list!");
+            System.out.println("Name: " + incomeList.get(incomeList.size()-1).incomeName + " \nAmount: " + incomeList.get(incomeList.size()-1).amount + " \nCategory: " + incomeList.get(incomeList.size()-1).getIncomeCategory().getCategory());
         }
         new WriteIncomeToFile();
     }
 
     // Method for getting the category from user input to the Income Object.
     public ICategory getIncomeCat() throws IOException {
-        String check = InputReader.BufferedReaderOut();
+        String check = InputReader.StringOut();
         if (check.equals("1")) {
             return ICategory.WAGE;
         } else if (check.equals("2")) {
@@ -105,26 +105,26 @@ public class IncomeStorage {
         public void ChangeIncome() throws IOException {
             System.out.println("Choose income to change by ID.");
             new IncomeStorage().ListIncomeFull();
-            int choice = InputReader.BufferedReaderInt();
+            int choice = InputReader.IntOut();
             choice = choice - 1;
             System.out.println("What do you want to change? [1] Name [2] Amount [3] Category");
-            String changeChoice = InputReader.BufferedReaderOut();
+            String changeChoice = InputReader.StringOut();
             switch (changeChoice) {
                 case "1": {
                     System.out.println("Type the name:");
-                    IncomeStorage.incomeList.get(choice).setIncomeName(InputReader.BufferedReaderOut());
+                    IncomeStorage.incomeList.get(choice).setIncomeName(InputReader.StringOut());
                     new IncomeMenu();
                     break;
                 }
                 case "2": {
                     System.out.println("Input amount:");
-                    IncomeStorage.incomeList.get(choice).setAmount(InputReader.BufferedReaderDouble());
+                    IncomeStorage.incomeList.get(choice).setAmount(InputReader.DoubleOut());
                     new IncomeMenu();
                     break;
                 }
                 case "3": {
                     System.out.println("Choose a category. [1] Wage. [2] Services [3] Other");
-                    changeChoice = InputReader.BufferedReaderOut();
+                    changeChoice = InputReader.StringOut();
                     switch (changeChoice) {
                         case "1": {
                             IncomeStorage.incomeList.get(choice).setIncomeCategory(ICategory.WAGE);
@@ -152,7 +152,7 @@ public class IncomeStorage {
         void RemoveIncome() throws IOException {
             System.out.println("Which Income do you want to change? Choose by ID");
             new IncomeStorage().ListIncomeFull();
-            int choice = InputReader.BufferedReaderInt();
+            int choice = InputReader.IntOut();
             IncomeStorage.incomeList.remove((choice - 1));
             for (Income income : incomeList){
                 int newID = Integer.parseInt(income.id);
@@ -180,7 +180,7 @@ public class IncomeStorage {
         // Simple EXACT search method for finding an income object.
         public void SearchIncome() throws IOException {
             System.out.println("Search for income by inputting name of income or id");
-            String check = InputReader.BufferedReaderOut();
+            String check = InputReader.StringOut();
             for (Income income:
                  IncomeStorage.incomeList) {
                 if (check.equals(income.incomeName)){

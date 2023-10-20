@@ -26,24 +26,25 @@ public class ExpenseStorage{
     }
     public void CreateExpense() throws IOException {
         System.out.println("How many expenses do you want to add?");
-        int eAmt = InputReader.BufferedReaderInt();
+        int eAmt = InputReader.IntOut();
         for (int i = 0; i < eAmt; i++) {
             System.out.println("Create an expense.");
             Expense expense = new Expense();
             System.out.println("Name your expense.");
-            expense.setExpenseName(InputReader.BufferedReaderOut());
+            expense.setExpenseName(InputReader.StringOut());
             System.out.println("Amount.");
-            expense.setAmount(InputReader.BufferedReaderDouble());
+            expense.setAmount(InputReader.DoubleOut());
             System.out.println("Choose a category through a number: \n[1] Food\n[2] Gas\n[3] Rent\n[4] Fun\n[5] Other");
             expense.seteExpenseCategory(getExpenseCat());
             expenseList.add(expense);
-            System.out.println("Name" + expenseList.get(0).expenseName + " Amount: " + expenseList.get(0).amount + " Category: " + expenseList.get(0).geteExpenseCategory().getCategory());
+            System.out.println("Expense added!");
+            System.out.println("Name" + expenseList.get(expenseList.size()-1).expenseName + " Amount: " + expenseList.get(expenseList.size()-1).amount + " Category: " + expenseList.get(expenseList.size()-1).geteExpenseCategory().getCategory());
         }
         new ExpenseStorage.WriteExpenseToFile();
         new ExpensesMenu();
     }
     public ECategory getExpenseCat() throws IOException {
-        String check = InputReader.BufferedReaderOut();
+        String check = InputReader.StringOut();
         switch (check) {
             case "1": return ECategory.FOOD;
             case "2": return ECategory.GAS;
@@ -68,19 +69,19 @@ public class ExpenseStorage{
     public void ChangeExpense() throws IOException {
         new ExpenseStorage().ListExpenses();
         System.out.println("Choose expense to change by ID.");
-        int choice = InputReader.BufferedReaderInt();
+        int choice = InputReader.IntOut();
         choice = choice - 1;
         System.out.println("What do you want to change? [1] Name [2] Amount [3] Category");
-        String changeChoice = InputReader.BufferedReaderOut();
+        String changeChoice = InputReader.StringOut();
         switch (changeChoice){
             case "1": {
                 System.out.println("Type the new name: ");
-                ExpenseStorage.expenseList.get(choice).setExpenseName(InputReader.BufferedReaderOut());
+                ExpenseStorage.expenseList.get(choice).setExpenseName(InputReader.StringOut());
                 new ExpensesMenu();
             }
             case "2": {
                 System.out.println("Input new amount: ");
-                ExpenseStorage.expenseList.get(choice).setAmount(InputReader.BufferedReaderDouble());
+                ExpenseStorage.expenseList.get(choice).setAmount(InputReader.DoubleOut());
                 new ExpensesMenu();
             }
             case "3":{
@@ -120,7 +121,7 @@ public class ExpenseStorage{
     public void RemoveExpense() throws IOException {
         System.out.println("Which Income do you want to change? Choose by ID");
         new ExpenseStorage().ListExpenses();
-        int choice =InputReader.BufferedReaderInt();
+        int choice =InputReader.IntOut();
         ExpenseStorage.expenseList.remove((choice-1));
         for(Expense expense : expenseList){
             int newID = Integer.parseInt(expense.id);
@@ -186,7 +187,7 @@ public class ExpenseStorage{
     }
     public void SearchExpense() throws IOException {
         System.out.println("Search for expense by inputting name of income or id");
-        String check = InputReader.BufferedReaderOut();
+        String check = InputReader.StringOut();
         for (Expense expense:
                 ExpenseStorage.expenseList) {
             if (check.equals(expense.expenseName)){
