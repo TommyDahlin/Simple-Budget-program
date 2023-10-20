@@ -4,6 +4,7 @@ package org.example;
 public class Expense extends Transaction{
     public String expenseName;
     public ECategory ECategory;
+    public String id = String.valueOf(ExpenseStorage.expenseList.size()+1);
 
     @Override
     public void setAmount(double amount) {

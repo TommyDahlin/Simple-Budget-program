@@ -122,16 +122,81 @@ public class ExpenseStorage{
         new ExpenseStorage().ListExpenses();
         int choice =InputReader.BufferedReaderInt();
         ExpenseStorage.expenseList.remove((choice-1));
+        for(Expense expense : expenseList){
+            int newID = Integer.parseInt(expense.id);
+            if (newID <= 1){
+                newID = Integer.parseInt("1");
+                expense.id = String.valueOf(newID);
+            } else {
+                expense.id = String.valueOf(newID);
+            }
+        }
         new ExpenseStorage.WriteExpenseToFile();
         new IncomeMenu();
     }
+
     public void ListExpenses() {
         for (int i = 0; i < ExpenseStorage.expenseList.size(); i++) {
-            System.out.println("Amount: " + (ExpenseStorage.expenseList.get(i).expenseName));
-            System.out.println((ExpenseStorage.expenseList.get(i).amount));
-            System.out.println((ExpenseStorage.expenseList.get(i).ECategory.getCategory()));
+            System.out.println( (ExpenseStorage.expenseList.get(i).expenseName));
+            System.out.println(("Amount: " + ExpenseStorage.expenseList.get(i).amount));
+            System.out.println(("Category: " + ExpenseStorage.expenseList.get(i).ECategory.getCategory()));
             System.out.println("Date added: " + ExpenseStorage.expenseList.get(i).date);
-            System.out.println("ID: " + (i+1));
+            System.out.println("ID: " + expenseList.get(i).id);
+        }
+    }
+    public static void ListByCatOther(){
+        for (Expense expense : expenseList) {
+            if (expense.geteExpenseCategory() == ECategory.OTHER) {
+                System.out.println(expense.getExpenseName() + " " + expense.ECategory.getCategory() + " " + expense.amount);
+                System.out.println("Id " + expense.id);
+            }
+        }
+    }
+    public static void ListByCatFood(){
+        for (Expense expense : expenseList) {
+            if (expense.geteExpenseCategory() == ECategory.FOOD) {
+                System.out.println(expense.getExpenseName() + " " + expense.ECategory.getCategory() + " " + expense.amount);
+                System.out.println("Id " + expense.id);
+            }
+        }
+    }
+    public static void ListByCatGas(){
+        for (Expense expense : expenseList) {
+            if (expense.geteExpenseCategory() == ECategory.GAS) {
+                System.out.println(expense.getExpenseName() + " " + expense.ECategory.getCategory() + " " + expense.amount);
+                System.out.println("Id " + expense.id);
+            }
+        }
+    }
+    public static void ListByCatFun(){
+        for (Expense expense : expenseList) {
+            if (expense.geteExpenseCategory() == ECategory.FUN) {
+                System.out.println(expense.getExpenseName() + " " + expense.ECategory.getCategory() + " " + expense.amount);
+                System.out.println("Id " + expense.id);
+            }
+        }
+    }
+    public static void ListByCatRent(){
+        for (Expense expense : expenseList) {
+            if (expense.geteExpenseCategory() == ECategory.RENT) {
+                System.out.println(expense.getExpenseName() + " " + expense.ECategory.getCategory() + " " + expense.amount);
+                System.out.println("Id " + expense.id);
+            }
+        }
+    }
+    public void SearchExpense() throws IOException {
+        System.out.println("Search for expense by inputting name of income or id");
+        String check = InputReader.BufferedReaderOut();
+        for (Expense expense:
+                ExpenseStorage.expenseList) {
+            if (check.equals(expense.expenseName)){
+                System.out.println(expense.expenseName + " \n" + expense.id + " \n" + expense.amount + " \n" + expense.ECategory);
+            }else if (check.equals(expense.id)){
+                System.out.println(expense.expenseName + " \n" + expense.id + " \n" + expense.amount + " \n" + expense.ECategory);
+            }else {
+                System.out.println("Couldn't find anything that matched.");
+            }
+            new IncomeMenu();
         }
     }
 }
