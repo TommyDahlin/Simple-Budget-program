@@ -14,6 +14,7 @@ public class UserMenu extends User {
                     new UserMenu();
                     case "2":
                         new UserStorage().CreateUser();
+                        new UserStorage().WriteUserToFile();
                         new UserMenu();
                     break;
                 case "3":

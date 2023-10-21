@@ -17,6 +17,9 @@ public class ScanFile {
             FileReader fr = new FileReader(FileLocation.userLocation);
             User[] users;
             users = gson.fromJson(fr, User[].class);
+            if (users == null){
+                new MainMenu();
+            }
             for (int i = 0; i < users.length; i++){
                 User user = (User) Array.get(users, i);
                 UserStorage.userList.add(user);

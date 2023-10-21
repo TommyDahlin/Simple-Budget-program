@@ -7,11 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jsontest (1)" />
+        <module name="jsontest" />
         <module name="jsontest (2)" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="jsontest" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

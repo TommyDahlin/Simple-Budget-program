@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class InputReader {
-
-
     public static Double DoubleOut(){
     Scanner scanner = new Scanner(System.in);
     double buh = 0;
