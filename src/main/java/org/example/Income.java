@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.function.Consumer;
 
-// Income class extends transaction with Amount and Date.
+// Income class extends transaction with Amount and Date which is an example of polymorphism, the same variable is used in different cases..
 // Made 3 enums for the class, for income categories.
 public class Income extends Transaction{
 

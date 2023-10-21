@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+// user handler class, has all methods for the User objects.
 public class UserStorage {
     public static ArrayList<User> userList = new ArrayList<>();
          Gson gson = new Gson();
